@@ -40,5 +40,13 @@ public class Brick extends Canvas
 		window.fillRect(getX(), getY(), getW(), getH());
 		window.setColor(Color.BLACK);
 		window.drawRect(getX(), getY(), getW(), getH());
+		/*/
+
+		//Find an Image for the Brick.
+		/*
+		Graphics2D g2 = (Graphics2D) window;
+		Image img1 = Toolkit.getDefaultToolkit().getImage("brick.png"); //use .gif or .png, you can choose the image
+		g2.drawImage(img1, getX(), getY(), getW(), getH(), this);
+		*/
 	}
 }
