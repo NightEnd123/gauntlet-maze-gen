@@ -1,61 +1,42 @@
 import java.awt.*;
 
-/*
- *	Complete the Brick class.
- */
-
 public class Brick extends Canvas
 {
-	//these are instance variables
 	private int x, y, w, h;
 
 	public Brick()
 	{
-		//complete this constructor
+		x = 0;
+		y = 0;
+		w = 0;
+		h = 0;
 	}
 
-	public Brick( int ex, int wy, int wd, int ht)
+	public Brick(int ex, int wy, int wd, int ht)
 	{
-		//complete this constructor
+		x = ex;
+		y = wy;
+		w = wd;
+		h = ht;
 	}
 
-	//Brick and any class extending Brick
-	//will inherit these complete methods
-	public int getX( ){ return x; }
-	public void setX( int ex ){ x = ex; }
-	public int getY( ){ return y; }
-	public void setY( int wy ){ y = wy; }
-	public int getW(){ return w; }
-	public int getH(){ return h; }
+	public int getX() { return x; }
+	public void setX(int ex) { x = ex; }
+	public int getY() { return y; }
+	public void setY(int wy) { y = wy; }
+	public int getW() { return w; }
+	public int getH() { return h; }
 
-	//write the code to see if this Brick
-	//intersects with the other Brick
-	public boolean intersects( Brick other )
+	public boolean intersects(Brick other)
 	{
-		/* Rectangle Help
-		 * 		This link has help docs for Rectangle
-		 *		https://docs.oracle.com/javase/8/docs/api/java/awt/Rectangle.html
-		 *		make new Rectangle, using this Brick's x,y,w,h
-		 *		make new Rectangle, using the other Bricks's x,y,w,h
-		 *		return if the two Rectangles intersect, use the Rectangle's intersects method.
-		 */
-
-		return false;
+		Rectangle r1 = new Rectangle(x, y, w, h);
+		Rectangle r2 = new Rectangle(other.getX(), other.getY(), other.getW(), other.getH());
+		return r1.intersects(r2);
 	}
 
-	//code to draw the Brick will go here
-	public void paint( Graphics window )
+	public void paint(Graphics window)
 	{
-		window.drawString("Brick Class ", 50, 150 );
-
-		//Draw the Brick with graphics methods
-		//or use an Image
-
-
-		//PICK ONE -  YOU CANNOT DO BOTH!!!!
-
-
-		window.setColor(Color.RED);
+		window.setColor(Color.DARK_GRAY);
 		window.fillRect(getX(), getY(), getW(), getH());
 		window.setColor(Color.BLACK);
 		window.drawRect(getX(), getY(), getW(), getH());
